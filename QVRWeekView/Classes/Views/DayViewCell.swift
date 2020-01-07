@@ -171,7 +171,7 @@ class DayViewCell: UICollectionViewCell, CAAnimationDelegate {
     }
     
     private func generateBorderViews() {
-        self.layer.borderWidth = LayoutVariables.dayViewCellWidth
+        self.layer.borderWidth = LayoutVariables.dayViewCellBorderWidth
         self.layer.borderColor = LayoutVariables.dayViewCellBorderColor.cgColor
     }
 
