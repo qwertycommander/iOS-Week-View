@@ -787,6 +787,16 @@ extension DayScrollView {
         LayoutVariables.dashedSeparatorColor = color
         updateLayout()
     }
+    
+    func setDayViewCellBorderColor(to color: UIColor) {
+        LayoutVariables.dayViewCellBorderColor = color
+        updateLayout()
+    }
+    
+    func setDayViewCellBorderWidth(to width: CGFloat) {
+        LayoutVariables.dayViewCellBorderWidth = width
+        updateLayout()
+    }
 
     /**
      Sets the thickness of the dashed day view separators.
@@ -1111,6 +1121,9 @@ struct LayoutVariables {
     // Thickness for day view main Separators
     fileprivate(set) static var mainSeparatorThickness = LayoutDefaults.mainSeparatorThickness
 
+    fileprivate(set) static var dayViewCellBorderColor = LayoutDefaults.dayViewCellBorderColor
+    fileprivate(set) static var dayViewCellBorderWidth = LayoutDefaults.dayViewCellBorderWidth
+    
     // Color for day view dahshed Separators
     fileprivate(set) static var dashedSeparatorColor = LayoutDefaults.backgroundColor
     // Thickness for day view dashed Separators

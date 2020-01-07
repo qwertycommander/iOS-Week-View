@@ -75,10 +75,13 @@ class DayViewCell: UICollectionViewCell, CAAnimationDelegate {
         updateOverlay()
         generateSeparatorLayers()
         generateEventLayers()
+        generateBorderViews()
         if self.addingEvent {
             self.addingEvent = false
         }
     }
+    
+    
 
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         return layoutAttributes
@@ -165,6 +168,11 @@ class DayViewCell: UICollectionViewCell, CAAnimationDelegate {
             hourIndicatorView.backgroundColor = LayoutVariables.hourIndicatorColor
         }
 
+    }
+    
+    private func generateBorderViews() {
+        self.layer.borderWidth = LayoutVariables.dayViewCellWidth
+        self.layer.borderColor = LayoutVariables.dayViewCellBorderColor.cgColor
     }
 
     private func generateSeparatorLayers() {

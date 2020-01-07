@@ -12,7 +12,7 @@ import Foundation
  */
 public extension WeekView {
     // MARK: - WEEKVIEW CUSTOMIZATION -
-
+    
     /**
      Background color of main scrollview.
      */
@@ -25,7 +25,7 @@ public extension WeekView {
             self.sideBarView.backgroundColor = color
         }
     }
-
+    
     /**
      Default height of the top bar
      */
@@ -40,41 +40,6 @@ public extension WeekView {
     }
     
     /**
-     Color of the day view border.
-     */
-    @objc var dayViewCellBorderColor: UIColor {
-        get {
-            return UIColor(cgColor: UIColor.clear.cgColor)
-        }
-        set(color) {
-            for (_, cell) in self.dayScrollView.dayViewCells {
-                cell.layer.borderColor = color.cgColor
-            }
-            
-//            updateVisibleLabelsAndMainConstraints()
-        }
-    }
-    
-    /**
-     Color of the day view border.
-     */
-    @objc var dayViewCellBorderWidth: CGFloat {
-        get {
-            for (_, cell) in self.dayScrollView.dayViewCells {
-                return cell.layer.borderWidth
-            }
-            return 0
-        }
-        set(width) {
-            for (_, cell) in self.dayScrollView.dayViewCells {
-                cell.layer.borderWidth = width
-            }
-            
-//            updateVisibleLabelsAndMainConstraints()
-        }
-    }
-
-    /**
      Background color of top bar containing day labels.
      */
     @objc var topBarColor: UIColor {
@@ -86,7 +51,7 @@ public extension WeekView {
             self.topBarView.backgroundColor = color
         }
     }
-
+    
     /**
      Color of the side bar containing hour labels.
      */
@@ -98,7 +63,7 @@ public extension WeekView {
             self.sideBarView.backgroundColor = color
         }
     }
-
+    
     /**
      Width of the side bar containing hour labels.
      */
@@ -111,7 +76,7 @@ public extension WeekView {
             self.topLeftBufferWidthConstraint.constant = width
         }
     }
-
+    
     /**
      Font for all day labels contained in the top bar.
      */
@@ -124,7 +89,7 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
-
+    
     /**
      Text color for all day labels contained in the top bar.
      */
@@ -137,7 +102,7 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
-
+    
     /**
      Text color for today day label contained in the top bar.
      */
@@ -150,7 +115,7 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
-
+    
     /**
      Minimum font size that day label text will be resized to if label is too small.
      */
@@ -163,7 +128,7 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
-
+    
     /**
      Short date format for day labels.
      See reference of date formats at: http://nsdateformatter.com/
@@ -177,7 +142,7 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
-
+    
     /**
      Normal date format for day labels.
      See reference of date formats at: http://nsdateformatter.com/
@@ -191,7 +156,7 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
-
+    
     /**
      Long date format for day labels.
      See reference of date formats at: http://nsdateformatter.com/
@@ -205,7 +170,7 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
-
+    
     /**
      Locale for the day labels.
      If none is given device locale will be used.
@@ -223,7 +188,7 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
-
+    
     /**
      Font for all hour labels contained in the side bar.
      */
@@ -236,7 +201,7 @@ public extension WeekView {
             updateHourSideBarView()
         }
     }
-
+    
     /**
      Text color for all hour labels contained in the side bar.
      */
@@ -249,7 +214,7 @@ public extension WeekView {
             updateHourSideBarView()
         }
     }
-
+    
     /**
      Minimum percentage that hour label text will be resized to if label is too small.
      */
@@ -262,7 +227,7 @@ public extension WeekView {
             updateHourSideBarView()
         }
     }
-
+    
     /**
      Format of all hour labels.
      */
@@ -275,7 +240,7 @@ public extension WeekView {
             updateHourSideBarView()
         }
     }
-
+    
     /**
      Height of all day labels.
      */
@@ -287,7 +252,7 @@ public extension WeekView {
             self.dayScrollView.setAllDayEventHeight(to: height)
         }
     }
-
+    
     /**
      Height of all day labels.
      */
@@ -299,7 +264,7 @@ public extension WeekView {
             dayScrollView.setAllDayEventVerticalSpacing(to: height)
         }
     }
-
+    
     /**
      Spread all day events on x axis, if not true than spread will be made on y axis.
      */
@@ -311,7 +276,7 @@ public extension WeekView {
             self.dayScrollView.setAllDayEventsSpreadOnX(to: onX)
         }
     }
-
+    
     /**
      Enable this to automatically allow events to be converted to allDay events if they go from midnight to midnight. (default true)
      */
@@ -323,7 +288,7 @@ public extension WeekView {
             LayoutVariables.autoConvertAllDayEvents = enable
         }
     }
-
+    
     /**
      Helper function for hour label customization.
      */
@@ -335,9 +300,9 @@ public extension WeekView {
             }
         }
     }
-
+    
     // MARK: - DAYSCROLLVIEW CUSTOMIZATION -
-
+    
     /**
      Number of visible days when in portait mode.
      */
@@ -351,7 +316,7 @@ public extension WeekView {
             }
         }
     }
-
+    
     /**
      Number of visible days when in landscape mode.
      */
@@ -365,7 +330,7 @@ public extension WeekView {
             }
         }
     }
-
+    
     /**
      Font used for all event labels contained in the day view cells.
      */
@@ -377,7 +342,7 @@ public extension WeekView {
             self.dayScrollView.setEventLabelFont(to: font)
         }
     }
-
+    
     /**
      Thin font used for all event labels contained in the day view cells.
      */
@@ -389,7 +354,7 @@ public extension WeekView {
             self.dayScrollView.setEventLabelInfoFont(to: font)
         }
     }
-
+    
     /**
      Text color for all event labels contained in the day view cells.
      */
@@ -401,7 +366,7 @@ public extension WeekView {
             self.dayScrollView.setEventLabelTextColor(to: color)
         }
     }
-
+    
     /**
      Minimum percentage that event label text will be resized to if label is too small.
      */
@@ -413,7 +378,7 @@ public extension WeekView {
             self.dayScrollView.setEventLabelMinimumFontSize(to: scale)
         }
     }
-
+    
     /**
      Sets whether event label font resizing is enabled or not.
      */
@@ -426,7 +391,7 @@ public extension WeekView {
             self.dayScrollView.setEventLabelFontResizingEnabled(to: bool)
         }
     }
-
+    
     /**
      Horizontal padding of the text within event labels.
      */
@@ -438,7 +403,7 @@ public extension WeekView {
             self.dayScrollView.setEventLabelHorizontalTextPadding(to: padding)
         }
     }
-
+    
     /**
      Vertical padding of the text within event labels.
      */
@@ -450,7 +415,7 @@ public extension WeekView {
             self.dayScrollView.setEventLabelVerticalTextPadding(to: padding)
         }
     }
-
+    
     /**
      The text shown inside the preview event.
      */
@@ -462,7 +427,7 @@ public extension WeekView {
             self.dayScrollView.setPreviewEventText(to: text)
         }
     }
-
+    
     /**
      The color of the preview event.
      */
@@ -474,7 +439,7 @@ public extension WeekView {
             self.dayScrollView.setPreviewEventColor(to: color)
         }
     }
-
+    
     /**
      Height of the preview event in hours.
      */
@@ -486,7 +451,7 @@ public extension WeekView {
             self.dayScrollView.setPreviewEventHeightInHours(to: height)
         }
     }
-
+    
     /**
      The number of minutes the preview event will snap to. Ex: 15.0 will snap preview event to nearest 15 minutes.
      */
@@ -498,7 +463,7 @@ public extension WeekView {
             self.dayScrollView.setPreviewEventPrecisionInMinutes(to: mins)
         }
     }
-
+    
     /**
      When enabled a preview event will be displayed on a long press.
      */
@@ -510,7 +475,7 @@ public extension WeekView {
             self.dayScrollView.setShowPreviewOnLongPress(to: show)
         }
     }
-
+    
     /**
      Default color of the day view cells. These are all days that are not weekends and not passed.
      */
@@ -525,7 +490,7 @@ public extension WeekView {
             self.dayScrollView.setDefaultDayViewColor(to: color)
         }
     }
-
+    
     /**
      Color for all day view cells that are weekend days.
      */
@@ -537,7 +502,7 @@ public extension WeekView {
             self.dayScrollView.setWeekendDayViewColor(to: color)
         }
     }
-
+    
     /**
      Color for all day view cells that are passed days and not weekends.
      */
@@ -549,7 +514,7 @@ public extension WeekView {
             self.dayScrollView.setPassedDayViewColor(to: color)
         }
     }
-
+    
     /**
      Color for all day view cells that are passed weekend days.
      */
@@ -561,7 +526,7 @@ public extension WeekView {
             self.dayScrollView.setPassedWeekendDayViewColor(to: color)
         }
     }
-
+    
     /**
      Color for today's view cell.
      */
@@ -573,7 +538,7 @@ public extension WeekView {
             self.dayScrollView.setTodayViewColor(to: color)
         }
     }
-
+    
     /**
      Color of the current hour indicator.
      */
@@ -585,7 +550,7 @@ public extension WeekView {
             self.dayScrollView.setDayViewHourIndicatorColor(to: color)
         }
     }
-
+    
     /**
      Thickness (or height) of the current hour indicator.
      */
@@ -597,7 +562,7 @@ public extension WeekView {
             self.dayScrollView.setDayViewHourIndicatorThickness(to: thickness)
         }
     }
-
+    
     /**
      Color of the main hour separators in the day view cells. Main separators are full lines and not dashed.
      */
@@ -609,7 +574,7 @@ public extension WeekView {
             self.dayScrollView.setDayViewMainSeparatorColor(to: color)
         }
     }
-
+    
     /**
      Thickness of the main hour separators in the day view cells. Main separators are full lines and not dashed.
      */
@@ -621,7 +586,7 @@ public extension WeekView {
             self.dayScrollView.setDayViewMainSeparatorThickness(to: thickness)
         }
     }
-
+    
     /**
      Color of the dashed/dotted hour separators in the day view cells.
      */
@@ -633,7 +598,7 @@ public extension WeekView {
             self.dayScrollView.setDayViewDashedSeparatorColor(to: color)
         }
     }
-
+    
     /**
      Thickness of the dashed/dotted hour separators in the day view cells.
      */
@@ -645,13 +610,37 @@ public extension WeekView {
             self.dayScrollView.setDayViewDashedSeparatorThickness(to: thickness)
         }
     }
-
+    
+    /**
+     Color of the day view border.
+     */
+    @objc var dayViewCellBorderColor: UIColor {
+        get {
+            return LayoutVariables.dayViewCellBorderColor
+        }
+        set(color) {
+            self.dayScrollView.setDayViewCellBorderColor(to: color)
+        }
+    }
+    
+    /**
+     Color of the day view border.
+     */
+    @objc var dayViewCellBorderWidth: CGFloat {
+        get {
+            return LayoutVariables.dayViewCellBorderWidth
+        }
+        set(width) {
+            self.dayScrollView.setDayViewCellBorderWidth(to: width)
+        }
+    }
+    
     /**
      Sets the pattern for the dashed/dotted separators. Requires an array of NSNumbers.
      Example 1: [10, 5] will provide a pattern of 10 points drawn, 5 points empty, repeated.
      Example 2: [3, 4, 9, 2] will provide a pattern of 4 points drawn, 4 points empty, 9 points
      drawn, 2 points empty.
-
+     
      See Apple API for additional information on pattern drawing.
      https://developer.apple.com/documentation/quartzcore/cashapelayer/1521921-linedashpattern
      */
@@ -663,7 +652,7 @@ public extension WeekView {
             self.dayScrollView.setDayViewDashedSeparatorPattern(to: pattern)
         }
     }
-
+    
     /**
      Height for the day view cells. This is the initial height for zoom scale = 1.0.
      */
@@ -675,7 +664,7 @@ public extension WeekView {
             self.dayScrollView.setInitialVisibleDayViewCellHeight(to: height)
         }
     }
-
+    
     /**
      Amount of spacing in between day view cells when in portrait mode.
      */
@@ -689,7 +678,7 @@ public extension WeekView {
             }
         }
     }
-
+    
     /**
      Amount of spacing in between day view cells when in landscape mode.
      */
@@ -703,7 +692,7 @@ public extension WeekView {
             }
         }
     }
-
+    
     /**
      Amount of spacing above and below day view cells when in portrait mode.
      */
@@ -717,7 +706,7 @@ public extension WeekView {
             }
         }
     }
-
+    
     /**
      Amount of spacing above and below day view cells when in landscape mode.
      */
@@ -731,7 +720,7 @@ public extension WeekView {
             }
         }
     }
-
+    
     /**
      The minimum zoom scale to which the weekview can be zoomed. Ex. 0.5 means that the weekview
      can be zoomed to half the original given hourHeight.
@@ -744,7 +733,7 @@ public extension WeekView {
             self.dayScrollView.setMinimumZoomScale(to: scale)
         }
     }
-
+    
     /**
      The current zoom scale to which the weekview will be zoomed. Ex. 0.5 means that the weekview
      will be zoomed to half the original given hourHeight.
@@ -776,10 +765,10 @@ public extension WeekView {
             default:
                 self.dayScrollView.setCurrentZoomScale(to: scale)
             }
-
+            
         }
     }
-
+    
     /**
      The maximum zoom scale to which the weekview can be zoomed. Ex. 2.0 means that the weekview
      can be zoomed to double the original given hourHeight.
@@ -792,7 +781,7 @@ public extension WeekView {
             self.dayScrollView.setMaximumZoomScale(to: scale)
         }
     }
-
+    
     /**
      Sensitivity for horizontal scrolling. A higher number will multiply input velocity
      more and thus result in more cells being skipped when scrolling.
@@ -825,7 +814,7 @@ extension TextVariables {
     fileprivate(set) static var dayLabelDateFormats: [TextMode: String] = LayoutDefaults.dayLabelDateFormats
     // Locale of day labels
     fileprivate(set) static var dayLabelDateLocale: Locale?
-
+    
     // Font for all hour labels
     fileprivate(set) static var hourLabelFont = LayoutDefaults.hourLabelFont {
         didSet {
@@ -844,7 +833,7 @@ extension TextVariables {
     private(set) static var hourLabelMinimumScale = LayoutDefaults.hourLabelMinimumFontSize / LayoutDefaults.hourLabelFont.pointSize
     // Default format for all hour labels
     fileprivate(set) static var hourLabelDateFormat = LayoutDefaults.hourLabelDateFormat
-
+    
     // Method updates the minimum hour scale
     private static func updateHourMinScale () {
         hourLabelMinimumScale = hourLabelMinimumFontSize / hourLabelFont.pointSize
@@ -853,15 +842,12 @@ extension TextVariables {
 
 // Customization extension for LayoutVariables
 extension LayoutVariables {
-
+    
     // Default height of the top bar
     fileprivate(set) static var defaultTopBarHeight = LayoutDefaults.defaultTopBarHeight
-
-    fileprivate(set) static var dayViewCellBorderColor = LayoutDefaults.dayViewCellBorderColor
     
-    fileprivate(set) static var dayViewCellBorderWidth = LayoutDefaults.dayViewCellBorderWidth
     
     // Automatically
     fileprivate(set) static var autoConvertAllDayEvents = true
-
+    
 }
