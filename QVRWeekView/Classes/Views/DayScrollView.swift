@@ -117,7 +117,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, DayViewCellDelegate, Frame
     private func initDayScrollView() {
 
         // Set visible days variable for device orientation
-        LayoutVariables.orientation = UIApplication.shared.statusBarOrientation
+        LayoutVariables.orientation = UIScreen.main.orientation
         LayoutVariables.activeFrameWidth = self.frame.width
         LayoutVariables.activeFrameHeight = self.frame.height
 
@@ -500,7 +500,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, DayViewCellDelegate, Frame
         // Update layout variables
         LayoutVariables.activeFrameWidth = self.frame.width
         LayoutVariables.activeFrameHeight = self.frame.height
-        LayoutVariables.orientation = UIApplication.shared.statusBarOrientation
+        LayoutVariables.orientation = UIScreen.main.orientation
         // Update scroll view content size
         self.contentSize = CGSize(width: LayoutVariables.activeFrameWidth, height: LayoutVariables.totalContentHeight)
 
