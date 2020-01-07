@@ -44,9 +44,6 @@ public extension WeekView {
      */
     @objc var dayViewCellBorderColor: UIColor {
         get {
-            for (id, cell) in self.dayScrollView.dayViewCells {
-                return UIColor(cgColor: cell.layer.borderColor ?? UIColor.clear.cgColor)
-            }
             return UIColor(cgColor: UIColor.clear.cgColor)
         }
         set(color) {
@@ -860,6 +857,10 @@ extension LayoutVariables {
     // Default height of the top bar
     fileprivate(set) static var defaultTopBarHeight = LayoutDefaults.defaultTopBarHeight
 
+    fileprivate(set) static var dayViewCellBorderColor = LayoutDefaults.dayViewCellBorderColor
+    
+    fileprivate(set) static var dayViewCellBorderWidth = LayoutDefaults.dayViewCellBorderWidth
+    
     // Automatically
     fileprivate(set) static var autoConvertAllDayEvents = true
 

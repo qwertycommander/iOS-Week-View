@@ -26,6 +26,9 @@ struct LayoutDefaults {
     // Date formats for day labels
     static let dayLabelDateFormats: [TextMode: String] = [.large: "E d MMM y", .normal: "E d MMM", .small: "d MMM"]
 
+    static let dayViewCellBorderColor = UIColor.clear
+    static let dayViewCellBorderWidth : CGFloat = 0.0
+    
     // Default font of hour labels
     static let hourLabelFont = UIFont.boldSystemFont(ofSize: 12)
     // Default text color of hour labels
