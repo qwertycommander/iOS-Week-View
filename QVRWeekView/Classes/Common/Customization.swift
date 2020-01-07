@@ -38,6 +38,44 @@ public extension WeekView {
             updateVisibleLabelsAndMainConstraints()
         }
     }
+    
+    /**
+     Color of the day view border.
+     */
+    @objc var dayViewCellBorderColor: UIColor {
+        get {
+            for (id, cell) in self.dayScrollView.dayViewCells {
+                return UIColor(cgColor: cell.layer.borderColor ?? UIColor.clear.cgColor)
+            }
+            return UIColor(cgColor: UIColor.clear.cgColor)
+        }
+        set(color) {
+            for (_, cell) in self.dayScrollView.dayViewCells {
+                cell.layer.borderColor = color.cgColor
+            }
+            
+//            updateVisibleLabelsAndMainConstraints()
+        }
+    }
+    
+    /**
+     Color of the day view border.
+     */
+    @objc var dayViewCellBorderWidth: CGFloat {
+        get {
+            for (_, cell) in self.dayScrollView.dayViewCells {
+                return cell.layer.borderWidth
+            }
+            return 0
+        }
+        set(width) {
+            for (_, cell) in self.dayScrollView.dayViewCells {
+                cell.layer.borderWidth = width
+            }
+            
+//            updateVisibleLabelsAndMainConstraints()
+        }
+    }
 
     /**
      Background color of top bar containing day labels.
