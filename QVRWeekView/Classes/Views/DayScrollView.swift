@@ -254,6 +254,13 @@ UICollectionViewDelegate, UICollectionViewDataSource, DayViewCellDelegate, Frame
     func eventViewWasTappedIn(_ dayViewCell: DayViewCell, withEventData eventData: EventData) {
         self.weekView?.eventViewWasTapped(eventData)
     }
+    
+    func dayViewCellWasTapped(_ dayViewCell: DayViewCell, hours: Int, minutes: Int) {
+        self.weekView?.dayViewCellWasTapped(dayViewCell, at: hours, and: minutes)
+        for (_, dayViewCell) in dayViewCells {
+            dayViewCell.addingEvent = true
+        }
+    }
 
     func dayViewCellWasLongPressed(_ dayViewCell: DayViewCell, hours: Int, minutes: Int) {
         self.weekView?.dayViewCellWasLongPressed(dayViewCell, at: hours, and: minutes)
@@ -700,6 +707,14 @@ extension DayScrollView {
         LayoutVariables.previewEventPrecisionInMinutes = minutes
         updateLayout()
     }
+    
+    /**
+     Sets the precision of the preview event.
+     */
+    func setTapEventPrecisionInMinutes(to minutes: Double) {
+        LayoutVariables.tapEventPrecisionInMinutes = minutes
+        updateLayout()
+    }
 
     /**
      Sets show preview on long press.
@@ -1139,6 +1154,8 @@ struct LayoutVariables {
     fileprivate(set) static var previewEventHeightInHours = LayoutDefaults.previewEventHeightInHours
     // Number of minutes the preview event will snap to.
     fileprivate(set) static var previewEventPrecisionInMinutes = LayoutDefaults.previewEventPrecisionInMinutes
+    // Number of minutes the preview event will snap to on tap.
+    fileprivate(set) static var tapEventPrecisionInMinutes = LayoutDefaults.tapEventPrecisionInMinutes
     // Show preview on long press.
     fileprivate(set) static var showPreviewOnLongPress = LayoutDefaults.showPreviewOnLongPress
 

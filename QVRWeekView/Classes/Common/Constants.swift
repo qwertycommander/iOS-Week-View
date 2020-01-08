@@ -59,6 +59,8 @@ struct LayoutDefaults {
     static let previewEventHeightInHours = 2.0
     // Default precision of the preview event in minutes.
     static let previewEventPrecisionInMinutes = 15.0
+    
+    static let tapEventPrecisionInMinutes = 30.0
     // Default show preview on long press
     static let showPreviewOnLongPress = true
 

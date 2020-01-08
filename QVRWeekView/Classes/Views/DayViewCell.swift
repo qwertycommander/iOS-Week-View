@@ -140,15 +140,7 @@ class DayViewCell: UICollectionViewCell, CAAnimationDelegate {
         self.generateEventLayers(andResizeText: TextVariables.eventLabelFontResizingEnabled)
     }
 
-    @objc func tapAction(_ sender: UITapGestureRecognizer) {
-        let tapPoint = sender.location(in: self)
-        for (id, frame) in eventFrames {
-            if frame.contains(tapPoint) && eventsData[id] != nil {
-                self.delegate?.eventViewWasTappedIn(self, withEventData: eventsData[id]!)
-                return
-            }
-        }
-    }
+
 
     func updateEventTextFontSize() {
         self.generateEventLayers(andResizeText: TextVariables.eventLabelFontResizingEnabled)
@@ -261,6 +253,25 @@ class DayViewCell: UICollectionViewCell, CAAnimationDelegate {
                 self.layer.addSublayer(pLayer)
             }
         }
+    }
+    
+    @objc func tapAction(_ sender: UITapGestureRecognizer) {
+        let tapPoint = sender.location(in: self)
+        for (id, frame) in eventFrames {
+            if frame.contains(tapPoint) && eventsData[id] != nil {
+                self.delegate?.eventViewWasTappedIn(self, withEventData: eventsData[id]!)
+                return
+            }
+        }
+        let yTouch = tapPoint.y
+        let time = Double(yTouch - (hourHeight*CGFloat(LayoutVariables.previewEventHeightInHours/2)) / self.frame.height * 24)
+        let rounded = time.roundToNearest(LayoutVariables.tapEventPrecisionInMinutes/60.0)
+        let hours = Int(rounded)
+        let minutes = Int((rounded-Double(hours))*60.0)
+
+        self.previewVisible = false
+        self.delegate?.dayViewCellWasTapped(self, hours: hours, minutes: minutes)
+        
     }
 
     @objc func longPressAction(_ sender: UILongPressGestureRecognizer) {
@@ -383,6 +394,8 @@ protocol DayViewCellDelegate: class {
     func dayViewCellWasLongPressed(_ dayViewCell: DayViewCell, hours: Int, minutes: Int)
 
     func eventViewWasTappedIn(_ dayViewCell: DayViewCell, withEventData eventData: EventData)
+    
+    func dayViewCellWasTapped(_ dayViewCell: DayViewCell, hours: Int, minutes: Int)
 
 }
 

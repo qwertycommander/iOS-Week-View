@@ -465,6 +465,20 @@ public extension WeekView {
     }
     
     /**
+     The number of minutes the preview event will snap to. Ex: 15.0 will snap preview event to nearest 15 minutes.
+     */
+    @objc var tapEventPrecisionInMinutes: Double {
+        get {
+            return LayoutVariables.tapEventPrecisionInMinutes
+        }
+        set(mins) {
+            self.dayScrollView.setTapEventPrecisionInMinutes(to: mins)
+        }
+    }
+    
+    
+    
+    /**
      When enabled a preview event will be displayed on a long press.
      */
     @objc var showPreviewOnLongPress: Bool {
