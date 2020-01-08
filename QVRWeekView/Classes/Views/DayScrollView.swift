@@ -258,7 +258,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, DayViewCellDelegate, Frame
     func dayViewCellWasTapped(_ dayViewCell: DayViewCell, hours: Int, minutes: Int) {
         self.weekView?.dayViewCellWasTapped(dayViewCell, at: hours, and: minutes)
         for (_, dayViewCell) in dayViewCells {
-            dayViewCell.addingEvent = true
+            dayViewCell.addingEvent = false
         }
     }
 

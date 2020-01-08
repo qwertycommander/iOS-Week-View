@@ -264,11 +264,15 @@ class DayViewCell: UICollectionViewCell, CAAnimationDelegate {
             }
         }
         let yTouch = tapPoint.y
+        print("yTouch: \(yTouch)")
         let time = Double(yTouch - (hourHeight*CGFloat(LayoutVariables.previewEventHeightInHours/2)) / self.frame.height * 24)
+        
+        print("time: \(time)")
         let rounded = time.roundToNearest(LayoutVariables.tapEventPrecisionInMinutes/60.0)
         let hours = Int(rounded)
         let minutes = Int((rounded-Double(hours))*60.0)
-
+        print("hours: \(hours)")
+        print("minutes: \(minutes)")
         self.previewVisible = false
         self.delegate?.dayViewCellWasTapped(self, hours: hours, minutes: minutes)
         
