@@ -265,9 +265,13 @@ class DayViewCell: UICollectionViewCell, CAAnimationDelegate {
         }
         let yTouch = tapPoint.y
         print("yTouch: \(yTouch)")
-        let time = Double(yTouch - (hourHeight*CGFloat(LayoutVariables.previewEventHeightInHours/2)) / self.frame.height * 24)
+        let time = Double(
+            yTouch / self.frame.height * 24
+                
+        )
         
         print("time: \(time)")
+        print("frame height: \(self.frame.height)")
         let rounded = time.roundToNearest(LayoutVariables.tapEventPrecisionInMinutes/60.0)
         let hours = Int(rounded)
         let minutes = Int((rounded-Double(hours))*60.0)
