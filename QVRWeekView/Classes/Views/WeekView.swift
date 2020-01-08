@@ -229,8 +229,8 @@ open class WeekView: UIView {
     }
     
     func dayViewCellWasTapped(_ dayViewCell: DayViewCell, at hours: Int, and minutes: Int, date: DayDate) {
-        let newDate = date.dateObj
-        self.delegate?.didTapView(in: self, with: hours, and: minutes, date: newDate)
+        let date = dayViewCell.date.getDateWithTime(hours: hours, minutes: minutes, seconds: 0)
+        self.delegate?.didTapView(in: self, with: hours, and: minutes, date: date)
     }
 
     /**
