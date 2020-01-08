@@ -230,7 +230,7 @@ open class WeekView: UIView {
     
     func dayViewCellWasTapped(_ dayViewCell: DayViewCell, at hours: Int, and minutes: Int) {
         let date = dayViewCell.date.getDateWithTime(hours: hours, minutes: minutes, seconds: 0)
-        self.delegate?.didTapView(in: self, atDate: date)
+        self.delegate?.didTapView(in: self, with: hours, and: minutes)
     }
 
     /**
@@ -550,7 +550,7 @@ extension WeekView {
 @objc public protocol WeekViewDelegate: class {
     func didLongPressDayView(in weekView: WeekView, atDate date: Date)
 
-    func didTapView(in weekView: WeekView, atDate date: Date)
+    func didTapView(in weekView: WeekView, with hours: Int, and minutes: Int)
     
     func didTapEvent(in weekView: WeekView, withId eventId: String)
 
