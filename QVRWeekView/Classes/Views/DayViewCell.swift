@@ -278,7 +278,7 @@ class DayViewCell: UICollectionViewCell, CAAnimationDelegate {
         print("hours: \(hours)")
         print("minutes: \(minutes)")
         self.previewVisible = false
-        self.delegate?.dayViewCellWasTapped(self, hours: hours, minutes: minutes)
+        self.delegate?.dayViewCellWasTapped(self, hours: hours, minutes: minutes, date: self.date)
         
     }
 
@@ -403,7 +403,7 @@ protocol DayViewCellDelegate: class {
 
     func eventViewWasTappedIn(_ dayViewCell: DayViewCell, withEventData eventData: EventData)
     
-    func dayViewCellWasTapped(_ dayViewCell: DayViewCell, hours: Int, minutes: Int)
+    func dayViewCellWasTapped(_ dayViewCell: DayViewCell, hours: Int, minutes: Int, date: DayDate)
 
 }
 
